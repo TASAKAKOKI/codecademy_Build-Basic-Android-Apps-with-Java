@@ -1,13 +1,19 @@
-⭐❇️➡️✔️
 Android Studio Logging
         Printing information to a console (logging) is essential for developers, learn how to use ⭐Android's logging tool, Logcat⭐
 
     Logging
-        To be a great developer, we need to cultivate a “debugging mindset” as well as build up defensive programming practices that make writing error-prone code less likely. When developing apps, we often find ourselves in the role of a coding investigator—hunting for clues and answers to why our app is crashing or not working as expected.
+        To be a great developer, ⭐we need to cultivate a “debugging mindset”⭐ as well as build up defensive programming practices that make ⭐writing error-prone code less⭐ likely. When developing apps, we often find ourselves in the role of a coding investigator—hunting for clues and answers to why our app is crashing or not working as expected.
 
-        The Logcat window in Android Studio displays messages to developers—both errors in the code or information and messages we write ourselves using the Log class. It displays messages in real-time and keeps a history so we can view older messages. Most Android developers depend heavily on logcat during development to debug their applications.
+        The ⭐Logcat⭐ window in Android Studio ⭐displays messages to developers—both errors in the code or information and messages we write ourselves using the Log class⭐. It ⭐displays messages in real-time and keeps a history so we can view older messages⭐. Most Android developers depend heavily on logcat during development to debug their applications.
             ➡️https://www.youtube.com/watch?v=ezoAGY9Z_HU
 
+    Logcat
+        ➡️Create filters
+        ➡️Modify amount of information displayed
+        ➡️Determine priority levels
+        ➡️Display messages by app code only
+        ➡️Search the log
+⭐❇️➡️✔️
     Write log messages
         The Log class allows us to create log messages that appear in Logcat. Generally, we should use the following log methods, listed in order from the highest to the lowest priority.
             ❇️Log.e(String, String) // Error
@@ -17,7 +23,7 @@ Android Studio Logging
             ❇️Log.v(String, String) // Verbose
         
         For each Log method, the first parameter is a unique tag and the second parameter is the message. The tag of a system log message is a short string indicating the system component from which the message originates. Your tag can be any string that you find helpful, such as the name of the current class.
-        
+
             private static final String TAG = "MainActivity";
             ...
             Log.i(TAG, "Greetings from Main Activity");
@@ -42,14 +48,15 @@ Android Studio Logging
 
         For example::
             2020-01-13 16:57:57.124 21711-21711/com.example.helloworld I/MainActivity: Main Activity
-
-        date: 2020-01-13
-        time: 16:57:57
-        PID-TID (Process Identifier - Thread Identifier): 21711-21711
-        package: com.example.helloworld
-        priority: I
-        tag: MainActivity
-        message: Main Activity
+        
+        above line is composed of below thing:
+            date: 2020-01-13
+            time: 16:57:57
+            PID-TID (Process Identifier - Thread Identifier): 21711-21711
+            package: com.example.helloworld
+            priority: I
+            tag: MainActivity
+            message: Main Activity
 
 
         Imagine that we have the following activity in a MyActivity.java file:
@@ -80,15 +87,9 @@ Android Studio Logging
             }
 
         Match the log value with the description:
-            ⭐⭐: Show all log messages (the default).
-            ⭐⭐: Show debug log messages that are useful during development only, as well as the message levels lower in this list.
-            ⭐⭐: Show expected log messages for regular usage, as well as the message levels lower in this list.
-            ⭐⭐: Show possible issues that are not yet errors, as well as the message levels lower in this list.
-            ⭐⭐: Show issues that have caused errors, as well as the message level lower in this list.
-            ⭐⭐: Show issues that the developer expects should never happen.
-        Error
-        Info
-        Warn
-        Debug
-        Verbose
-        Assert
+            ⭐Verbose⭐: Show all log messages (the default).
+            ⭐Debug⭐: Show debug log messages that are useful during development only, as well as the message levels lower in this list.
+            ⭐Info⭐: Show expected log messages for regular usage, as well as the message levels lower in this list.
+            ⭐Warn⭐: Show possible issues that are not yet errors, as well as the message levels lower in this list.
+            ⭐Error⭐: Show issues that have caused errors, as well as the message level lower in this list.
+            ⭐Assert⭐: Show issues that the developer expects should never happen.

@@ -1,0 +1,76 @@
+Android Project: Dear Diary
+        In this project, you'll apply your knowledge of Android so far and build the start of a Dear Diary application. This project will ask you to create and configure a new Android project, add content in both text and design mode, log content and run on an AVD. Let's start!
+    
+    Step 1: Create a new project
+        Choose Start a new Android Studio project in the Android Studio welcome screen.
+
+    Step 2: Create an activity
+        In the next screen, there are a series of templates to choose from. Create an empty activity and layout by choosing the Empty Activity template and selecting the next button.
+
+    Step 3: Configure the project
+        Configure the app by choosing what you want to call it, what company domain to use, and where you would like to store the files.
+
+        Android Studio uses the company domain and application name to generate the name of the package that will be used for our app. The package name is really important in Android, as it’s used by Android devices to uniquely identify our app.   
+            ➡️Give your app the name of My Android Diary
+            ➡️Give your app the company name of codecademy.com
+
+        Entering the above information will result in Android Studio deriving a package name of com.codecademy.myandroiddiary.
+            ➡️Accept the default project location or choose your own.
+        
+    Step 4: Specify the API level
+        Indicate which API level of Android your app will use. Choose an API that gives you approximately 85% coverage.
+
+        API levels increase with every new version of Android. Unless your app requires the latest Android features and you only need it to run on the very newest devices, you probably want to specify one of the older APIs.
+
+        When you have successfully chosen an API level, click the finish button.
+
+Reflect
+        We’ve just created our first Android app—so what just happened?
+
+        The Android Studio wizard created a project for your app, configured to your specifications. Choosing the API level defined which versions of Android the app should be compatible with, and the wizard created all of the files and folders needed for a basic valid app. It created a basic activity and layout with template code. Android studio has generated a Java class file called MainActivity.java and an XML file called activity_main.xml.
+
+        The template code includes layout XML, with sample "Hello world!" text in the layout.
+
+        Your next tasks will focus on these two files Android Studio has generated for you.
+
+Edit code with Android Studio Editors
+    Step 5: Make Changes with the text editor
+        In the text editor, change the greeting in the XML <TextView> component from "Hello World!" to "Dear Diary" then add textSize property and give it a value of 48sp.
+
+    Step 6: Change with Design Editor
+        An alternative to the text editor is the design editor. Switch to the design editor which will allow you to drag GUI components onto your layout in an arrangement of your choice. Drag a Multiline Text component from Palette > Text > Multiline Text onto your design/blueprint visual display.
+
+        Depending on where we placed the button we should see the following:
+
+        Note: We will address the red ! marks on our screen later.
+
+Android Emulator
+        The emulator enables you to set up one or more Android virtual devices (AVDs) and then run the app in the emulator as though it’s running on a physical device.
+
+    Step 7: Run in the app in the emulator
+        Choose the Run ‘app’ command from the Run menu.
+
+        When you unlock the AVD screen, you should see the app on the device. The application name, My Android Diary, appears at the top of the screen, and the default sample text "Dear Diary" is displayed on the screen with our Multiline Text component. However, our Multiline Text input is at the coordinates 0, 0. The red ! mark in Android Studio warned us of this.
+
+    Step 8: Change code and run
+        Add constraints to the Multiline Text component in design mode by dragging the white bubbles surrounding the element to the borders you want to constrain it to. After you add constraints, run your app again to see changes by choosing Apply Changes and Restart Activity from the Run menu. You should now see a multiline text input in your AVD that reflects what you see in Android Studio.
+
+What you have built so far
+        At this point, your app allows a user to input multiple lines of text. This could be the first step in creating a journaling or note-taking application!
+
+    Step 9: Logging
+        Create a string TAG in the MainActivity.java file. It is common practice for the TAG to be named after the class we are logging from. Give it the text "MainActivity".
+
+        In the onCreateBundle() method, call the Log.i method. Android studio should import in the Log class in the files import section. The first value you will pass to the Log.i() method will be the string TAG you created. The second value will be a string value for the message we want to log.
+
+        Log the message "I am a logging pro!".
+
+    Step 10: Log the message
+        Run your app again: Run > Apply Changes and Restart Activity. In logcat, use the search filter to type the text you used for your tag. The result should look similar to:
+
+        Confirm that you see the tag, "MainActvity" and the message, "I am a logging pro!".
+
+Great job!
+        This project pulled together everything we have learned so far about starting and configuring a project all the way through to using the text and design editor and running our app on an AVD!
+
+        The Android Studio wizard created a project for your app, configured to your specifications. It created an empty activity and layout with a default template code. The activity controls what the app does and how it responds to the user. The layout specifies what the app looks like. Through the text and design editor, you were able to customize your app. You were able to preview your app on any Android device using an AVD. Finally, you used logging—an essential tool for debugging and developing applications.
