@@ -1,0 +1,32 @@
+Introduction to Layout Editor
+        Learn about the Android Studio Layout Editor
+
+Introduction to Layout Editor
+        Android Studio’s Layout editor makes it easy for us to customize our applications. Layouts describe what our app looks like. In the Layout Editor, we can quickly build layouts by dragging UI elements into a visual design editor. The design editor can preview our layout on different Android devices and versions, and we can dynamically resize the layout to be sure it works well on different screen sizes.
+
+        Every Android app is a collection of screens, and each screen is comprised of an activity and a layout. An activity is a single, defined thing that your user can do. You might have an activity to compose an email, take a photo, or find a contact. Activities are usually associated with one screen, and they’re written in Java.
+
+        A layout describes the appearance of the screen. ⭐Layouts are written as XML files and they tell Android how the different screen elements are arranged⭐.
+            ➡️https://www.youtube.com/watch?v=SnJRnNbANr4
+
+    Review:
+        ❇️The app has one activity and one layout - When we built the app, we told Android Studio how to configure it, and the wizard did the rest. The wizard created a basic activity for us, and also a default layout.
+        ❇️The activity controls what the app does - Android Studio created an activity for us called MainActivity.java. The activity specifies what the app does and how it should respond to the user.
+        ❇️The layout controls the app appearance - MainActivity.java specified that it uses the layout Android Studio created for us called activity_main.xml. The layout specifies what the app looks like.
+        ❇️What’s in the layout? - There are two ways of viewing and editing layout files in Android Studio: through the design editor and through the text editor.
+
+    Fill in the blank:
+        The file that specifies what the app does and how it responds to the user is the  ⭐MainActivity.java⭐file. The file that specifies what the app looks like is the ⭐activity_main.xml⭐ file.
+        
+    Fill in the code to tell Android MainActivity class which layout we want our activity to use. In this case, it’s activity_main:
+        package com.example.helloworld;
+        
+        import...
+        
+        public class MainActivity extends AppComatActivity {
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                ⭐setContentView⭐(⭐R.layout.activity_main⭐);
+            }
+        }
