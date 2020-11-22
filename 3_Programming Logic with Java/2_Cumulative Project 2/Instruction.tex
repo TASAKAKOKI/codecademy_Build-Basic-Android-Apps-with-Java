@@ -1,0 +1,100 @@
+Question.java
+    Java is an Object-oriented language—we use Java to represent concepts by organizing them into collections of information (data) and behaviors (methods). For example, we can programmatically represent animals as having one to four legs (as data), and the ability to run (as a method).
+        public class Animal {
+            int numberOfLegs;
+            void run() {
+            // Get that blood pumping!
+            }
+        }
+
+    In the Unquote application, trivia questions are the objects we must represent with Java. In this project, you will define the ⭐Question class⭐ and its data, all of which become a part of your final Android application, Unquote.
+
+    If you get stuck during this project take a look at the project walkthrough video.
+        ➡️https://www.youtube.com/watch?v=1z8IS6TMes4
+
+Build Question.java
+    1.
+    Define the Question class.
+
+    Declare the Question class (you can leave the class body empty for now).
+      ➡️public class Animal {
+            // class body
+        }
+
+    2.
+    Track some key pieces of data.
+
+    Unquote numbers the possible answers from 0-3. Each Question object will store two critical integers: one integer will track the correct answer (correctAnswer) and another will track the player’s answer (playerAnswer).
+
+    Declare these two member variables within the Question class.
+
+    3.
+    Track one more whole number.
+
+    In Android, our code can reference non-code files that we include in our application (images, text, sounds, etc.) through a resource identifier. Each identifier is a unique whole number that refers to a specific resource. Each trivia question will present an image with a quotation to the player. You will store these images as Android resource files.
+
+    Declare a third member variable in Question to store the identifier (an integer) of the image. You should name this variable, imageId.
+
+    4.
+    Store 5 String objects.
+
+    Question must store a unique, quote-specific questionText for each image we present to the player.
+
+    Along with each questionText, your Question object must store four multiple-choice answers for players to choose from (answer0…answer3).
+
+    5.
+    Define a constructor method.
+
+    To create a new copy of the Question object, you must use a constructor method.
+
+    Add a constructor method to Question which assigns the following values to each new Question object:
+        1. int imageIdentifier (imageId)
+        2. String questionString (questionText)
+        3. String answerZero (answer0)
+        4. String answerOne (answer1)
+        5. String answerTwo (answer2)
+        6. String answerThree (answer3)
+        7. int correctAnswerIndex (correctAnswer)
+
+    6.
+    Assign a default value to playerAnswer.
+
+    We left one piece of data unassigned, playerAnswer.
+
+    Players will need to see the question before they can answer it. If the player manages to give an answer before we even present the question, they defy the space-time continuum…
+
+    Before moving onto the next question, playerAnswer will store a number between 0 and 3, indicating the choice the player made among the four options.
+
+    Until the player selects a choice, playerAnswer must store a default value.
+
+    Have the constructor assign -1 as the default value for playerAnswer.
+
+    7.
+    In previous assignments and projects, your code appeared near or within a main() method. The Java Virtual Machine starts a Java program by finding the class that defined the main() method and running the code from that spot.
+
+    However, ⭐Android applications are not standalone Java programs—the Android operating system defines the main() method and runs the application and the code for you⭐.
+
+    Rather than running on its own, Question.java will play a small part in your final Android game. To see an example of how this works, navigate to the AndroidOS.java file.
+
+    The ⭐AndroidOS class serves as a representation of the Android application layer (the part of Android that engages the user and the screen directly)⭐.
+
+    Rather than being a quiz application, the Android operating system can launch and execute a quiz app found on the device.
+
+    From the AndroidOS.java file, press “save” to save and run the code.
+
+    8.
+    In the AndroidOS.java file, create three Question objects within the runQuizApp() method.
+
+    Use your Question constructor to declare three new Question objects. You can make them anything you want (or use our sample data found in SampleQuestions.txt).
+
+    9.
+    Test your constructor.
+
+    Print every piece of data you expect your constructor to assign to each of your Question objects: imageId, questionText, answer0, etc. Make sure they match the expected values.
+
+    10.
+    Review.
+
+    The Question object will be the backbone of your Android application. Without it, you are unable to store and present trivia questions to the player.
+
+    In a later project, you will incorporate this code into your working Android game!
