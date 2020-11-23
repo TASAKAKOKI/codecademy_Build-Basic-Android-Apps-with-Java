@@ -1,0 +1,237 @@
+⭐❇️➡️✔️
+Game Logic Pt. II
+    In the previous Unquote project, Game Logic Part. I, you created the logic required for several key game components. In this project, you will expand on that work by tracking gameplay data within the MainActivity object. In the end, Unquote will make use of data such as the list of questions, the current question visible on-screen, the number of correct answers, and more!
+
+Let's Get Logical
+    1.
+    Track three key integers.
+
+    Inside of MainActivity, add 3 integer member variables to the MainActivity object at TODO #1:
+        ⭐currentQuestionIndex
+            This tracks which question we currently have presented on-screen, based on its integer location within a Question ArrayList (see task 2).
+    
+        ⭐totalCorrect
+            The number of questions which the player has answered correctly.
+
+        ⭐totalQuestions
+            The total number of questions we plan to ask the player during this round.
+
+    2.
+    Make a list, check it twice…
+
+    To keep track of every question the player must answer, MainActivity will store every Question in an ArrayList, an object which holds an ordered list of items.
+
+    Create an ArrayList object variable named ⭐questions⭐ below the integers declared in task 1 (TODO #2). The ⭐ArrayList will contain objects of the Question class⭐.
+
+    3.
+    A whole new game.
+
+    To start a new game, you must reset and assign all the member variables we declared in tasks 1 and 2.
+
+    To do this, you will consolidate all of the game setup logic into a single method: ⭐startNewGame()⭐. You will complete the next 4 tasks within this method.
+
+    Define startNewGame() inside of the MainActivity class at TODO #3.
+
+    4.
+    Bring on the questions.
+
+    For your first setup task, create 3 or more Question objects within startNewGame(); refer to the SampleQuestions.txt file for ideas or write your own!
+
+    Remember, all the values passed into the Question constructor must be valid: an imageIdentifier, a question statement for questionString, four String answers, and an integer representing the correct answer (0 through 3). Have fun and let loose while creating your questions!
+
+    5.
+    And array we go.
+
+    In startNewGame(), create a new ArrayList and assign it to the questions member variable you defined in task 2. Then, add all of your Question objects to the ArrayList.
+
+    6.
+    Reset the totals.
+
+    Your player may choose to replay Unquote after their first attempt (shocking, we know). During setup, therefore, you must reset the totalCorrect and totalQuestions member variables.
+
+    Please do that now within startNewGame().
+
+        Hint: At the beginning of the game, the player has yet to answer a single question, totalCorrect should reflect that.
+            And while you may hard-code the total number of questions (since you know exactly how many there will be), in the future, your game may support a variable number of questions.
+            Therefore, it’s better practice to rely on the original source of data, the ArrayList, and to call size() on the list to discover how many questions remain.
+    7.
+    Some copy & paste.
+
+    The last three lines of startNewGame() (your setup method) should be as follows:
+        Question firstQuestion = chooseNewQuestion();
+        // displayQuestion(firstQuestion);
+        // displayQuestionsRemaining(questions.size());
+
+    The three methods you call (chooseNewQuestion(), displayQuestion(), and displayQuestionsRemaining()) do not exist, and so the bottom two lines are commented.
+
+    You will implement the first method, chooseNewQuestion(), in the next step, but the last two rely on Android APIs that you cannot yet use.
+
+    Eventually, you will un-comment this code and use the first method to present the question on-screen and the second to update the number of remaining questions.
+
+    8.
+    An old friend.
+
+    Remember when you wrote generateRandomNumber() in Game Logic Pt. I? It’s back, baby.
+
+    In chooseNewQuestion(), you will use your random number generator method to pick a Question at random from your questions ArrayList—bet you didn’t see that coming!?
+
+    Define the chooseNewQuestion() method which returns a Question object and requires no parameters at TODO #4 in MainActivity.
+
+    9.
+    Pick a question, any question.
+
+    Within chooseNewQuestion(), use the generateRandomNumber() method to pick a number between 0 and one less than the number of Question objects in your questions ArrayList.
+
+    Assign this random number to a local variable.
+
+    10.
+    Change the state.
+
+    In chooseNewQuestion(), you will modify the state of MainActivity, meaning, you will change one or more of its member variables.
+
+    Specifically, you must change currentQuestionIndex, the integer which tracks the location of the current Question object.
+
+    By “location,” we mean the index of the current Question in the questions list. This can be 0, or 1, or 2, or anywhere up to n-1, where n represents the number of questions in the list.
+
+    Modify currentQuestionIndex to reflect the index of the randomly chosen Question object.
+
+    11.
+    One good question deserves another.
+
+    Lastly, chooseNewQuestion() must return a Question object, not an integer.
+
+    Use currentQuestionIndex and the questions ArrayList to return the appropriate Question object from chooseNewQuestion().
+
+        Hint: To retrieve a value from an ArrayList, we can use the ArrayList.get() method. This method retrieves the object at the given index location.
+            Unrelated Bonus Tip: you can chain returns together. Meaning, you may proceed your return statement with another method call that returns the same type of data your method must return, for example:
+                // This method must return a `ReportCard` object
+                
+                ReportCard showReportCardToParents() {
+                
+                    // Uh-oh… I better not show mine
+                    Student smartestKid = findSmartestKidInSchool();
+                
+                    // Fingers crossed!
+                    return smartestKid.showReportCardToParents();
+                
+                }
+            You can link this chain as long as necessary to simplify your method:
+                ReportCard showReportCardToParents() {
+                
+                    // Fingers crossed!
+                    return findSmartestKidInSchool().showReportCardToParents();
+                
+                }
+
+    12.
+    It’s convenient…
+
+    Programmers are lazy. We don’t want to code anything we don’t have to….
+
+    To avoid repeating code, we’ll write what’s called a convenience method. These methods are regular Java methods, but they are mainly responsible for turning a couple of lines of code into one line of code (a convenience method call).
+
+    Use currentQuestionIndex and your Java know-how to create a convenience method named getCurrentQuestion().
+
+    All this method will do is return the current Question object representing the on-screen question the player must answer. Simple, but convenient.
+
+    Write getCurrentQuestion() at TODO #5.
+
+    Bonus Tip: Convenience methods are refactor-friendly.
+
+    For example, if you ever change from an ArrayList of Question objects to some new data structure, you need only update this one convenience method, getCurrentQuestion(), instead of fixing dozens of spots in your code where you used ArrayList directly.
+
+    13.
+    Submit an answer.
+
+    When the player submits their answer, your code needs to take care of several important things, and, in a few short moments, it will!
+
+    But first, define a method named onAnswerSubmission() that takes in no parameters and returns void at TODO #6. You will call this method whenever (spoiler-alert) the player submits their answer.
+
+    14.
+    But are they right?
+
+    Unquote features a ‘Submit’ button, and until the player presses this button, they may change their answer as many times as they wish.
+
+    By the time your code executes onAnswerSubmission(), the player has made their choice and your code has stored their selection inside of the Question object (you will handle this logic in the final Unquote project).
+
+    In onAnswerSubmission(), your first piece of business is to modify totalCorrect. If the player guessed correctly, you must add 1 to this member variable.
+
+    Refer to the methods in Question.java and use your convenience method from task 12 to check whether your code should add 1 to the totalCorrect member variable.
+        
+        Hint: Use getCurrentQuestion() to recover the Question object for which the player wishes to submit their final answer.
+
+        Then, in combination with an if statement, use Question.isCorrect() to determine whether the player chose the right answer.
+
+    15.
+    99 questions of memes on the wall, 99 questions of memes…
+
+    Unquote works by removing Question objects from the questions list as the player answers them.
+
+    Your next task is to remove the current Question from the questions list, thereby bringing the player one question closer to the end of the game and one step closer to getting back to work!
+
+    Add this functionality to onAnswerSubmission().
+
+        Hint: ArrayList offers two ways to remove items from itself, ArrayList.remove(int) and ArrayList.remove(<T> element). The first relies on an index, the second relies on having a reference to the object you wish to remove.
+                ArrayList<Student> allStudents;        
+                …
+                // Option 1 - integer
+                Student expellStudent(int studentIndex) {
+                    allStudents.remove(studentIndex);
+                }
+                // Option 2 - object reference
+                Student expellStudent(Student expelledStudent) {
+                    allStudents.remove(expelledStudent);
+                }
+        You can use either method to remove the current Question from the questions list.
+    16.
+    From To-Do to To-Done.
+
+    Add one line below code written in the previous task:
+        // displayQuestionsRemaining(questions.size());
+
+    Since you’ve just removed a Question from the list, one less question remains.
+
+    Your interface needs to reflect this, and so you will call displayQuestionsRemaining() to refresh the on-screen value. (You will build this method in a later project).
+
+    17.
+    Is it game over?
+
+    Now you must decide whether it’s time to end the game.
+
+    Below the commented line you added in task 16, set up an if / else statement that checks whether the game has ended.
+
+    18.
+    Tell them what they’ve won!
+
+    In the case where the game is over, your code must do two things:
+
+    Print your “game over” message using System.out.println
+    And start a new game!
+    19.
+    Oh no, there’s more
+
+    And if the game is still on and the player must answer more questions, choose a new Question object for the player (you might just have a method for that…)
+
+    20.
+    One last line.
+
+    Exactly as you wrote in startNewGame(), the onAnswerSubmission() method needs to update the user interface after choosing a new question. Add, as a comment line, the following code immediately below the code in the previous task:
+        // TODO: uncomment after implementing displayQuestion()
+        // displayQuestion(getCurrentQuestion());
+
+    Bonus Tip: The practice of leaving reminders in comments to fulfill a code promise is called “specing” (speck-ing). We leave these TODOs for ourselves throughout a new class file or project as we zip along.
+
+    Later, when we have nothing fun to code, we can search for TODO comments and begin to fulfill all the promises littered across our codebase.
+
+    21.
+    Try it out!
+
+    If you’ve completed every step, Unquote is now… partially functional!
+
+    Tab over to Main.java to “play” the game:
+        1. Start the game by invoking MainActivity.startNewGame();
+        2. Retrieve the current Question by calling MainActivity.getCurrentQuestion();
+        3. Print the Question and answers using the provided printQuestion() method
+        4. Set an answer directly on the Question by modifying the playerAnswer member variable
+        5. Then submit an answer by invoking MainActivity.onAnswerSubmission();
+        6. Go nuts!
