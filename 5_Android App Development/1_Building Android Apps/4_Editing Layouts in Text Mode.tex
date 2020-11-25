@@ -1,0 +1,68 @@
+⭐❇️➡️✔️➖🔗💎👉👈
+Editing Layouts in Text Mode
+        Learn how we can use text mode to create and edit layouts with XML.
+
+        Up until now, we’ve worked exclusively in the visual editor where Android Studio requires both drags and drops from the developer to build layouts, but there is another way.
+
+        In text mode, developers craft layouts faster and with less ambiguity. By taking direct control of each component and its attributes, developers can save time and increase readability for teammates who look at and tweak a common set of layouts (not everyone likes design mode, after all). And while designing entirely in text may seem intimidating, Android Studio provides helpful tips and automated guidance along the way.
+            ⭐🔗https://www.youtube.com/watch?v=ukCDPeWEUeA
+
+        Review:
+            ➖Many types of resource files exist, and Android Studio helps us create the right one each time.
+            ➖Resource qualifiers help us generate XML files for specific device configurations, e.g. when in landscape, running a specific version of Android, and more.
+            ➖AndroidX is a compatibility library that offers unique features and the latest APIs to versions of Android past & present.
+            ➖ConstraintLayout is available exclusively through AndroidX.
+            ➖Namespaces help avoid attribute conflicts (two versions of the src attribute on a single ImageView, for example).
+            ➖Three common namespaces exist: android, tools, and app.
+            ➖The android namespace belongs to the Android SDK and represents attributes available out-of-the-box.
+            ➖The app namespace allows us to reference attributes defined by external libraries (e.g. AndroidX) and those defined by our application.
+            ➖The tools namespace allows us to define attributes used exclusively for development, the user’s device never sees these attributes.
+            ➖To refer and relate to one another, Views must provide a resource identifier (resource ID).
+            ➖Resource IDs are unique, so we must avoid reusing them across layouts.
+            ➖Editing layouts in text mode is not so scary after all!
+
+        Developers may build entire layouts exclusively in text mode.
+            False
+            ✔️True
+
+        Which of the following statements is FALSE?
+            AndroidX helps display modern Emojis on older devices.
+            AndroidX helps streamline and improve Android Development.
+            AndroidX is a Java Library that allows older Android devices to use modern APIs.
+            ✔️AndroidX must be included in your Android project.(It is optional)
+
+        What main purpose does a resource ID serve?
+            To help developers remember the purpose of a View or resource
+            ✔️To provide unique numbers that reference Views and other resource elements
+            To identify the type of View or resource associated with the ID
+            To help developers get through airport security
+
+        Set the resource ID of the ImageView and constraints of the TextView such that the TextView is constrained below and to the right side of the ImageView.
+            <?xml version="1.0" encoding="utf-8"?>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            
+                <ImageView
+                    android:id="👉@+id/iv_main_avatar👈"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:src="@tools:sample/avatars"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            
+                <TextView
+                    android:id="@+id/layout_textView_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintRight_toRightOf="👉@id/iv_main_avatar👈"
+                    app:layout_constraintTop_toBottomOf="👉@id/iv_main_avatar👈"
+                    tools:text="Alex A."/>
+            
+            </androidx.constraintlayout.widget.ConstraintLayout>

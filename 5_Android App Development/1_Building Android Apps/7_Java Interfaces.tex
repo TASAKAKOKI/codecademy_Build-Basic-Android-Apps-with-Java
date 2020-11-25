@@ -1,0 +1,226 @@
+⭐❇️➡️✔️➖🔗💎👉👈
+Java Interfaces
+        Learn about Java Interfaces
+        
+        Java interfaces provide a way for you to define a ‘job’ in your code. When you need a job done, you care less about who (which object) does the job and more about the output. That’s where interfaces come into play.
+
+        In your Android and Java coursework, you will come across Java’s interfaces. An 💎interface is similar to a 💎class, but rather than defining a real-world object, such as a car, person, or document, 👉interfaces define a job👈. In Android, for example, the code which responds to an on-screen ‘click’ is defined by an interface, therefore, handling the click is a job that the clicked element needs fulfilled.
+
+        In code, a Java interface is a collection of method names—just the names, with no function bodies—those are the functions performed as part of the job defined by the interface.
+
+        For example, if we have a Person class, the person can potentially perform many different jobs; a class can implement any number of interfaces.
+
+        So interfaces define the jobs that classes can perform. How does that work? Let’s think about an example. ArrayList is a class that implements the List interface. Implementing List means that the class must include over two dozen methods, such as size(), add(E element), and get(int index).
+
+        We mentioned earlier that the actual code for these methods is not specified, but their names alone give you a sense for what kind of job the List interface stands for—the job of listing items and returning information about the list. Any class that implements List ought to be able to return the size of the list, add more elements to the list, and get/return the item at a specific index. Feel free to verify that ArrayList does all these things competently.
+
+        Interfaces prove useful because, both in code and in life, we often want a job done but rarely care how it is done, ends-justify-the-means kind of thing. In an automobile factory, an employee can build a car, and a robot can build a car. Both fulfill these roles in unique ways, but all the factory cares about is the resulting automobile, not the way in which it was built (unfortunately).
+
+        Interfaces work the same way. ArrayList uses an array as its base data structure. But other classes implement List using other data structures. For example, the LinkedList and Stack classes do the List job using linked lists and stacks, respectively.
+
+        Here we will show you how to get in on the fun by implementing interfaces with classes of your very own! If you want, you’ll be able to implement the List interface with a LaundryList class, specially designed to keep track of socks and undies.
+
+    Define an Interface
+        Defining an interface is similar to defining a class:
+            interface CarBuilder {
+                … interface methods here
+            }
+
+        The key difference is that 👉within an interface definition, we implement nothing:
+            interface CarBuilder {
+                // A CarBuilder must be able to assemble a CarDoor
+                CarDoor assembleCarDoor();
+            
+                // A CarBuilder must be able to assemble a Wheel
+                Wheel assembleWheel(double radius);
+            
+            }
+
+        Notice how the methods defined by this interface feature a return type, a name, parameters, and (again) nothing else.👈 It’s up to classes that implement these interface roles to fill in the method code.
+
+        The interface itself has no clue how (or which) classes will ever implement its requirements, but it promises they will (somehow).
+
+        👉Interfaces may also define data that remains relevant to all implementations of the interface, data that may not be modified.
+            interface CarBuilder {
+                double MAX_WHEEL_RADIUS_CM = 60.0;
+                ...
+            }👈
+
+        When a class implements an interface, it inherits this data as well.
+
+    Implement an Interface
+        Let’s see how a class might implement the interface above. We’ll travel back in time to 1930 when all cars were built by hand:
+            // Note the `implements CarBuilder`
+            class AutoWorker extends Person implements CarBuilder {
+                ...
+            }
+
+        The class above, AutoWorker, has a parent type of Person and fulfills the role of CarBuilder. While a class may inherit from only one other class, it may implement any number of interfaces:
+            class AutoWorker extends Person implements CarBuilder, CarMechanic, Employee {
+                ...
+            }
+
+        To fulfill these interface roles, a class must implement the methods prescribed by each interface by overriding the method definitions:
+            class AutoWorker extends Person implements CarBuilder {
+                public AutoWorker(String name, int age, int salary) {
+                    ...
+                }
+                …
+                // CarBuilder Interface begins
+                @Override
+                public CarDoor assembleCarDoor() {
+                    // Put together the car door here
+                    …
+                    return carDoor;
+                }
+                @Override
+                public Wheel assembleWheel(double radius) {
+                    ...
+                    if (radius > MAX_WHEEL_RADIUS_CM) {
+                        // modify wheel radius
+                    }
+                    // Put a wheel together here
+                    …
+                    return wheel;
+                }
+            }
+
+        As we can see, AutoWorker implements assembleCarDoor() and assembleWheel(double) to fulfill the requirements of the CarBuilder interface. Without these methods in place, this class will fail to compile!
+
+        Now that we understand how to implement an interface, let’s think about why we might define an interface instead of expanding the responsibilities of a single class.
+
+    Interface Polymorphism
+        Much like we group objects with common ancestor classes, we may group objects with a common interface.
+
+        Fast-forward in history to a point where AutoFactory has two options for producing cars: human and robot.
+            class AutoWorker extends Person implements CarBuilder {...}
+            class AutomatedAutoWorker extends Robot implements CarBuilder {/* beep boop */...}
+
+        But rather than lay off all the humans and let the robots take over, the factory will diversify its labor pool by slowly incorporating automated workers… here’s how that might look:
+            class AutoFactory {
+                // An ArrayList of CarBuilder implementations, not AutoWorker or AutomatedAutoWorker
+                ArrayList<CarBuilder> carBuilders;
+            
+                public void startFactory() {
+                    AutomatedAutoWorker robot1 = new AutomatedAutoWorker();
+                    AutomatedAutoWorker robot2 = new AutomatedAutoWorker();
+                    AutomatedAutoWorker robot3 = new AutomatedAutoWorker();
+                    AutoWorker employee1 = new AutoWorker();
+                    AutoWorker employee2 = new AutoWorker();
+                    AutoWorker employee3 = new AutoWorker();
+                    AutoWorker employee4 = new AutoWorker();
+            
+                    carBuilders = new ArrayList<>;
+                    // Add all the robots to the carBuilders ArrayList
+                    carBuilders.add(robot1);
+                    carBuilders.add(robot2);
+                    carBuilders.add(robot3);
+                    // Add all the  meat-based employees to the carBuilders ArrayList
+                    carBuilders.add(employee1);
+                    carBuilders.add(employee2);
+                    carBuilders.add(employee3);
+                    carBuilders.add(employee4);       
+                }
+            }
+
+        While we typically use class types in ArrayList and other templated objects, here we used an interface type. The list of CarBuilder objects requires that every list element implement the CarBuilder interface, nothing more. We can use this to our advantage, like in the makeWheels() method:
+            class AutoFactory {
+                ArrayList<CarBuilder> carBuilders;
+                public void startFactory() {
+                    ...
+                }
+                private Wheel [] makeWheels (int numberOfWheels, double radius) {
+                    // Establish an array to hold all the new Wheel objects
+                    Wheel [] newWheels = new Wheel [numberOfWheels];
+                    // Set up the loop
+                    int wheelCount = 0;
+                    while (wheelCount < numberOfWheels) {
+                        // Use the first CarBuilder, we don't care if it's man… or machine!
+                        CarBuilder carBuilder = carBuilders.remove(0);
+                        // Perform the job
+                        Wheel newWheel = carBuilder.assembleWheel(radius);
+                        // Add the new Wheel to our set
+                        newWheels[wheelCount] = newWheel;
+            
+                        // Increment our total wheel count
+                        wheelCount = wheelCount + 1;
+                    }
+                    return newWheels;
+                }
+        This permits us to blend AutomatedAutoWorker objects with AutoWorker objects in the same list and method, even though the former inherits from Robot and the latter, Person.
+
+        In this example, we illustrated the key point: interfaces enable us to focus on the job that needs to be done, rather than the way it is done. In some cases, we merely need objects to fulfill the role specified by an interface, while their precise class remains irrelevant.
+
+    Inline Interface Definitions
+        Implementing an interface at the class-level occasionally proves cumbersome. As you’ll see in a moment, a class may need to fulfill its interface role in different ways depending on whom it’s working for.
+
+        In Android, the Activity class assumes responsibility for handling on-screen clicks. Whenever a user taps a button or a navigational element, the Activity class responds through an interface named, OnClickListener.
+
+        The only method required by OnClickListener looks like this:
+            public interface OnClickListener {
+                // Handle a click on View v
+                void onClick(View v);
+            }
+
+        Assuming an Activity presents multiple clickable elements, the single onClick() interface method must respond to every possible click! Here’s how that might look in an Activity within a Run-tracking application:
+            class RunningActivity extends Activity implements OnClickListener {
+                @Override
+                public void onClick(View v) {
+                    // if `v` is the ‘Start Run’ button, do this {…}
+                    ...
+                    // else if `v` is the ‘End Run’ button, do this {…}
+                    ...
+                    // else if `v` is the ‘Pause Run’ button, do this {…} 
+                    ... so on, and so forth
+                }
+            }
+
+        As a consequence, this single interface method will grow in length and complexity as RunningActivity offers more features and clickable elements. If the screen features over 10 clickable elements, RunningActivity must perform 10 unique jobs in one method.
+
+        To get around this limitation, we use inline interface definitions. An inline interface definition, defined as a member variable, looks like this:
+            class RunningActivity extends Activity {    
+                OnClickListener handleStartRunButtonClick = new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        … handle ‘Start Run’ button click
+                    }
+                }
+                ...
+            }
+        It looks like we declared a new ‘interface’, but interfaces are not classes—so what exactly happened here?
+
+        Under the hood, Java defined an anonymous object that resembles the following:
+            class ANON_CLASS_123456789 implements OnClickListener {
+                @Override
+                public void onClick(View v) {
+                    … handle ‘Start Run’ button click
+                }
+            }
+
+        And then Java creates an instance of this anonymous class, handleStartRunButtonClick, to use in our code:
+            class RunningActivity extends Activity {
+                OnClickListener handleStartRunButtonClick = new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        … handle ‘Start Run’ button click
+                    }
+                }
+                …
+                startRunButton.setOnClickListener(handleStartRunButtonClick);
+                ...
+            }
+
+        Now each clickable element on-screen can have its own OnClickListener interface object without bundling the click handling into a single method.
+
+        And we may even use inline definitions without first declaring them as member variables:
+                    ...
+                    startRunButton.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            … handle ‘Start Run’ button click
+                        }
+                    });
+                }
+            }
+            
+        Whether as inline definitions or as part of the class, interfaces help us separate responsibility from taxonomy. When our code needs a job done, and that job may be satisfied by multiple object types, an interface definition allows any object to fulfill the role.`

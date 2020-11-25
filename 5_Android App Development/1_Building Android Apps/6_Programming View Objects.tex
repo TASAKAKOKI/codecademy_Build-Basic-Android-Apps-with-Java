@@ -1,0 +1,75 @@
+⭐❇️➡️✔️➖🔗💎👉👈
+Programming View Objects
+        Learn how Android Layouts Become Programmable View Objects
+
+        During layout inflation, our XML layout designs become living, breathing in-app View objects. This process, largely handled by a single method in the Activity class, enables us to manipulate Views in code after rendering them on-screen.
+
+        setContentView performs this daunting task, and thereafter, findViewById permits us to recover individual on-screen Views and ViewGroups by their resource identifiers. This one-two punch is what developers use to populate their interfaces with meaningful data and imagery.
+            🔗https://www.youtube.com/watch?v=E_FQrjfxzfQ
+
+    Code Samples
+        To recover a View in code, we invoke findViewById like so:
+            // We must invoke setContentView before invoking findViewById
+            setContentView(R.layout.netflix);
+            View userName = findViewById(R.id.tv_netflix_userName);
+
+        To access class-specific methods, we change the type from the default View to the specific type of View or ViewGroup as defined by our layout file:
+            //View userName = findViewById(R.id.tv_netflix_userName);
+            TextView userName = findViewById(R.id.tv_netflix_userName);
+            userName.setText(user.userName);
+
+        Review:
+            👉The setContentView method begins the layout inflation process and presents the final, programmatic version of our layout as on-screen content.
+            👉The static R class exposes all available resource identifiers through R.id.<id_name>.
+            👉Activity objects may opt to present nothing to the screen, but the Android operating system always provides them with a Decor View.
+            👉The Decor View is the top-level ViewGroup in which an Activity may place its visible content.
+            👉After setContentView returns, we may use the findViewById to recover the programmatic View objects that represent our on-screen content.
+            👉Unless modified, findViewById returns the base View type, however, we often require the exact type to access class-specific methods, such as setText on TextView and setImageResource for ImageView
+            👉“Hardcoding” is the practice of programming with constant values that we should otherwise pull from more meaningful sources, e.g. “I hardcoded the user’s first name and email, but, in production, we should pull that data from the server.”
+            👉Include components are not ViewGroups.
+            👉We may use Log.d to post messages to logcat (system logs) and quickly verify assumptions about our code.
+
+        To present a layout to the screen, an Activity must…
+            ✔️Call setContentView.
+            Override the onStart method.
+            Invoke findViewById to find the Decor View.
+            Have a layout file with a corresponding name, e.g. MainActivity.java and activity_main.xml.
+
+        Which of the following is TRUE of the layout inflation process?
+            Layout inflation binds a layout file to an Activity.
+            Layout inflation pumps a steady stream of hot air into a layout file.
+            ✔️Layout inflation converts a layout text file into programmable Java View objects.
+            Layout inflation can only be performed by Activity objects.
+
+        Why does the following code snippet crash the application?
+            In activity_main.xml:
+                <?xml version="1.0" encoding="utf-8"?>
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                
+                    <Button
+                        android:id="@+id/button"
+                        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Press Here" />
+                
+                </LinearLayout>
+
+            In MainActivity.java:
+                @Override
+                    protected void onCreate(Bundle savedInstanceState) {
+                        super.onCreate(savedInstanceState);
+                        findViewById(R.id.button).setBackgroundColor(0xffffff);
+                        setContentView(R.layout.activity_main);
+                    }
+
+                    0xffffff is not a color.
+                    The setBackgroundColor(int) method does not exist on View.
+                    ✔️findViewById(R.id.button) returns null.
+                    The setBackgroundColor(int) method is a private method and cannot be invoked directly.

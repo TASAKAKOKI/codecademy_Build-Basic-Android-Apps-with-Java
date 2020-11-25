@@ -1,0 +1,47 @@
+⭐❇️➡️✔️➖🔗💎👉👈
+Android Layout Editor
+        Let's dig into the Layout Editor to understand how we can use it to visualize and modify our application designs
+
+        Without layout files, we have nothing to present to the user. 👉Layout files group View objects together to form cohesive interface elements such as an item in a scrolling list or the collective content visible on-screen👈. But before these layouts reach a user’s fingertips, it’s our job to make sure they fulfill our design vision.
+
+        Thankfully, Android Studio provides a tool that helps us visualize and modify our designs before we deploy them to our application. 👉The Layout Editor interprets the components and their positions, colors, images, fonts, and text strings defined in our layout files and presents them as they would appear on real-world devices.👈
+
+        Let’s explore the Layout Editor and how it helps achieve our design goals.
+            🔗https://www.youtube.com/watch?v=x-Tu5cREfZE
+
+        Review:
+            👉Android project files are divided into one of three categories: 💎code, 💎resource, and 💎configuration.
+            👉We categorize layouts, colors, text strings, images, and beyond as 💎‘resource’ files.
+            👉The Layout Editor opens automatically when editing layout files.
+            👉The 💎Text tab edits the underlying XML file directly, and the 💎Design tab provides a drag-and-drop interface for achieving the same results.
+            👉Attributes define the appearance and behavior of every View and ViewGroup.
+            👉In Design mode, the Layout Editor presents every possible attribute that we may supply.
+            👉Only two attributes are mandatory: layout_width and layout_height, and the most common values for these attributes are match_parent and wrap_content.
+        
+        The Layout Editor provides an exact representation of our layout files as they would appear on a real device…
+            True
+            ✔️False ==> It is only a near approximation
+
+        What purpose do attributes serve in a layout file?
+            Leave comments about the View for other developers to read
+            Set the order in which View’s appear on screen
+            Set the View’s render priority
+            ✔️Modify the View’s appearance and characteristics
+
+        Choose the attribute values that will force TextView to grow as wide as its parent but only as tall as its content requires.
+            <?xml version="1.0" encoding="utf-8"?>
+            <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            
+                <TextView
+                    android:layout_width="👉match_parent👈"
+                    android:layout_height="👉wrap_content👈"
+                    android:src="@drawable/ic_hello_world"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            
+            </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,184 @@
+⭐🎨❇️➡️➖💎✔️🔗👉👈
+Android Studio Quick-Start Guide
+        A Helpful Guide to Navigating Android Studio
+
+        Android Studio often intimidates beginners, but by learning a few handy shortcuts and getting the lay of the land, we can navigate this powerful development environment with ease.
+Interface Basics
+        When you open a project in Android Studio, you’ll see a screen resembling the following:
+            🎨https://content.codecademy.com/courses/Android/android-studio-main-screen-annotated.png
+                Figure A. Main Window
+        Here’s what each highlighted area corresponds to.
+            A-1. The Project Panel lists every file included in your Android Project.
+        
+        However, you will focus primarily on code located under the app > java > {com}.{example}.{appname} directory. In general, you can ignore the remaining folders and files, used primarily for testing and application configuration (a more advanced topic).
+
+        Double-click any folder or file to reveal its contents.
+            A-2. File tabs indicate every ‘open’ file.
+    
+        Android Studio permits you to edit one file at a time, and each tab represents an open file. Click on a tab to switch to the file and continue editing.
+
+            Tip: Android Studio automatically saves your changes as you edit each file, no need to save after making changes.
+
+            A-3. Launch controls help you ‘run’ an application, choose a target device / emulator, and more.
+        
+            Tip: to learn more about what each icon does, hover your mouse cursor over the button until a tooltip appears.
+
+            A-4. The Editing area is where the bulk of your work takes place. Your current open file consumes this area.
+
+    Resource Manager
+        In Android applications, ⭐Resources represent 👉files and data you bundle with your application👈.
+
+        These files may include interface blueprints (XML layouts), images, fonts, and more.
+
+        And your data may include text Strings (such as the name of the app), XML styles, dimensions (such as those used for width, height, text size), and beyond.
+
+        You may access and modify these through the Resource Manager pictured below:
+            🎨https://content.codecademy.com/courses/Android/android-studio-main-screen-resource-manager-annotated.png
+                Figure B. Resource Manager
+
+        Clicking the tab highlighted in green reveals & collapses the Resource Manager.
+
+        The red area indicates the various categories of resources you may access through the manager (Drawables, Colors, Strings, etc.).
+
+        Finally, the purple area lists every resource of a given type available to your application.
+
+            Tip: Double-clicking any resource listed in the manager will reveal its corresponding file in the editing area.
+
+            Tip: Right-clicking a resource can help you delete a resource, reveal its location on your computer, and more.
+
+    Layout Editor
+        Android Studio reveals the Layout Editor whenever you begin to edit a layout file. For example, you can begin editing a layout file by double-clicking a layout’s name within the Resource Manager. The editor comes in three possible modes:
+            Visual
+            Text
+            Text + Preview
+        
+        By default, Android Studio opens the Layout Editor in Visual mode, shown below (to view the layout editor as you see it here, collapse the Project and/or Resource Manager panels to give it more space):
+            🎨https://content.codecademy.com/courses/Android/android-studio-main-screen-layout-editor-visual-annotated.png
+                Figure C. Visual Layout Editor
+
+        You may switch between Visual, Text, and Text + Preview by clicking the icons highlighted in red.
+
+            C-1. The Component Palette helps you discover and choose Android layout components (Views and ViewGroups) to use in your designs.    
+            Tip: Click and drag a component onto the layout preview (C-4) to add it to your design.
+
+            C-2. The Component Tree represents the parent-child relationships of components within your layout and helps you quickly focus on a specific component when your layout grows complex.
+            Tip: Click any component in the tree to highlight it within your layout preview (C-4).
+
+            C-3. This panel of controls help you change the preview parameters such as ‘portrait’ vs ‘landscape’, screen size, and much more.
+            Tip: Hover any icon to reveal a tooltip.  Android Studio will explain the purpose of each button and drop-down menu.
+
+            C-4. The Layout Preview attempts to draw your layout as it would appear on a real device. Clicking within the Layout Preview permits you to manipulate components and reveal their attributes.
+
+            C-5. The Attributes Panel presents each component’s editable attributes. By modifying attributes, you are able to change the appearance and behavior of any component.
+
+        After you select a component in the Layout Preview, you reveal the Attributes Panel. The panel breaks into four distinct sections, listed below.
+            <Section>	        <Purpose>
+                Declared	    Your layout assigns a value to these attributes, unassigned attributes do not show up here.
+                Layout	        This section corresponds to attributes that help position the selected component within its parent.
+                Common	        These are suggested by Android Studio as attributes you are likely to edit for the selected component, e.g. the text attribute for TextView, src attribute for ImageView, etc.
+                All	            This section presents every possible attribute that your layout may provide for the selected component.
+
+        If you wish to edit the underlying XML content directly, use the toggles (highlighted in red to switch to Text or Text + Preview mode:
+            🎨https://content.codecademy.com/courses/Android/android-studio-main-screen-layout-editor-text-annotated.png
+                Figure D. Text + Preview Layout Editor
+
+        Once you’ve switched to (e.g.) Text + Preview mode, at D-1, you may edit directly the XML layout file. Changes made at D-1 will reflect in D-2, which is also an active Layout Preview.
+
+    Logcat
+        The Logcat Panel provides access to system messages printed by your running application and every internal component it relies upon:
+            🎨https://content.codecademy.com/courses/Android/android-studio-main-screen-logcat-annotated.png
+                Figure E. Logcat Panel Revealed
+
+        By default, the Logcat Panel reveals itself after you run your application for the first time, but you may collapse and reveal the panel at any time by clicking its title tab (highlighted in red).
+            E-1. This dropdown identifies the source of the log messages (emulator or device)
+            E-2. The dropdown at E-2 filters the log messages based on which application printed them (by default, the log is a public file which any application can write to and read from)
+            E-3. Use the controls at E-3 to change the urgency of log messages presented (Verbose presents all messages, Error presents only error messages)
+            E-4. If you know the message you’re looking for, type a keyword in this box to filter messages that contain that keyword
+            E-5. Error messages show up in red, which helps you identify them as you read your logs
+            
+Navigation Shortcuts
+        A few nifty tips can help you avoid excessive mouse-clicking or getting lost in Android Studio when you’re just trying to find that one thing.
+
+    Search All
+        The most powerful way to find anything in Android Studio is within the Search All window:
+            🎨https://content.codecademy.com/courses/Android/android-studio-all-search-window.png
+                Figure F. Search All Window
+
+        To reveal this window, press Shift two times in quick succession. Once revealed, begin typing the name of any file in your project to narrow the results.
+
+        Use your arrows keys (↑, ↓, ←, →) and the enter (or return ↩) to select and open the desired file.
+
+    Go-To Source
+        When editing a file (code or resource), we often want to ‘jump’ to the place where we initially defined a variable, class type, or resource identifier. By performing a ‘Go-To Source’ click, we can open the original declaring location of any element:
+            🎨https://content.codecademy.com/courses/Android/android-studio-tips-and-tricks-go-to-source.gif
+                Figure G. Go-To Source (Layout Identifier) Directs to the Original Layout File
+
+        Within the editing area (A-4), hold the CTRL key on Windows / Linux (orCMD key on OS X) and click any variable type or variable name to navigate to the place it was defined.
+
+        Here’s what this allows you to do:
+            1. Jump straight to a layout file by clicking its resource identifier
+            2. Navigate to a class definition by clicking the object type
+            3. Present a drawable on-screen by clicking its resource identifier
+            4. And more!
+
+Coding Shortcuts
+        As you’re coding, Android Studio bends over backwards to reduce the number of times your poor fingers must hammer away at the keyboard. These tips will help you generate code and layout components faster.
+
+    Autocomplete
+        Many integrated development platforms offered autocomplete (Code Completion) before it was cool. When working with a strictly-typed language like Java, these platforms think one or two steps ahead of the programmer to offer shortcuts as they type away:
+            🎨https://content.codecademy.com/courses/Android/android-studio-autocomplete.gif
+                Figure H. Code Autocompletion for View.OnClickListener
+
+        Autocomplete in Android Studio works just like on your smartphone, but better. As you type code into a Java class or attributes into a layout file in text mode, an autocomplete window may appear. If it does not, you can force it to appear by hitting the following shortcut:
+            Windows + Linux: CTRL + Spacebar
+            OS X: CMD + Spacebar
+
+        There’s also a fancier version that matches expected types 100%:
+            Windows + Linux: CTRL + Shift + Spacebar
+            OS X: CMD + Shift + Spacebar
+
+        After the autocomplete menu pops up, use the arrow keys (↑, ↓, ←, →) in combination with TAB to insert the autocompleted code snippet.
+    
+    Generate Common Code
+        Android Studio can help you generate common code patterns (constructors, getters, setters, and more) through a point-and-click interface; they call this feature ‘code generation.’ Here’s an example of Android Studio generating a constructor for the Question.java class:
+            🎨https://content.codecademy.com/courses/Android/android-studio-code-generation-constructor.gif  
+                Figure I. Generate a Constructor Using Code Generation
+
+        In this short gif, our class, Question, started off with a handful of member variables and no constructor. The code generator created a constructor for us that assigned the member variables we selected. And while you will probably only use this for constructors, it will become more useful over time as you learn more about Java.
+
+        To begin generating code, use the following keyboard shortcut while your editing area (A-4) is in focus:
+            Windows + Linux: ALT + Insert
+            OS X: CMD + N
+
+        This brings up a ‘Generate’ popup window that you may navigate with arrow keys (↑, ↓, ←, →). Hit return ↩ to select the element you wish to generate (a constructor, for example), then follow the on-screen prompts.
+
+    Quickly Comment Your Code
+        Two types of comments exist: Line Comments and Block Comments.
+            // This is a line comment
+            int myVariable = 5;
+            
+            /*
+            * This is a block comment!
+            */
+
+        To turn any line of code into a Line Comment, place your typing cursor on the designated line and use the following keyboard shortcut:
+            Windows + Linux: CTRL + /
+            OS X: CMD + /
+
+        This also works in reverse! Turn a Line Comment into a regular piece of code by repeating the keyboard shortcut on a commented line.
+
+        To create a Block Comment, use the following keyboard shortcut:
+            Windows + Linux: CTRL + Shift + /
+            OS X: CMD + Shift + /
+
+        You can also highlight a section of your code, and turn the whole thing into a Block Comment by using this shortcut.
+
+    Other Nifty Shortcuts
+        For a complete list of shortcuts broken down by category, check out the 🔗Android documentation(https://developer.android.com/studio/intro/keyboard-shortcuts). Here are some particularly useful ones:
+            Shortcut	                        Windows + Linux         OS X
+            Switch to previous file tab	        ALT + ←	                CTRL + ←
+            Switch to next file tab	            ALT + →	                CTRL + →
+            Delete current line	                CTRL + Y	            CMD + Delete
+            Look up documentation	            CTRL + Q	            CTRL + J
+            Build and run	                    Shift + F10	            CTRL + R
+            Apply Changes and Restart Activity	CTRL + F10	            CTRL + CMD + R

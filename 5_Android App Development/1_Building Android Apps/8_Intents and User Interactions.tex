@@ -1,0 +1,105 @@
+⭐❇️➡️✔️➖🔗💎👉👈
+Intents and User Interactions
+        Learn How to Handle Clicks and Other User Gestures and Add Value to Our Applications with Intents
+
+        Presenting a beautiful layout is only the beginning of providing value to the user—the better part requires us to respond and react to user input. The most common form of user input is touch, and, while touching a screen seems more intuitive now than holding a pencil, the underlying mechanics are deceptively complex.
+
+        Let’s explore how the Android operating system processes touch events and how the Android SDK helps us determine and respond to the user’s intention—be it a press, scroll, swipe, or something altogether different.
+            🔗https://www.youtube.com/watch?v=_v4UHiXy5JM
+
+Code Samples:
+    Listen For Clicks
+        To respond to an Android-defined click event, we must invoke the setOnClickListener method (available to all View objects), and supply an object that implements the View.OnClickListener interface:
+            findViewById(R.id.btn_main_orderPizza).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    orderThatPizza();
+                }
+            })
+            
+        The implementation above uses an inline object definition to provide the View.OnClickListener interface, and, for most cases, this is a fine approach.
+
+        When we do this, the Android runtime creates an anonymous inner object with an abstracted class definition, e.g. private class AnonymousClass1 implements View.OnClickListener {…}. The code that follows becomes part of the definition, and Android creates an instance of this definition before passing it as a parameter.
+
+        Alternatively, we may implement this interface as part of the parent Activity:
+            public class MainActivity extends Activity implements View.OnClickListener {
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                    ...
+                }            
+                @Override
+                public void onClick(View v) {
+                    orderThatPizza();
+                }
+            }
+            
+        When setting the button’s click listener, we instead pass the MainActivity object:
+            findViewById(R.id.btn_main_orderPizza).setOnClickListener(MainActivity.this);
+
+        This is the more robust and proper way to provide a click listener, but, for short responses such as the one-liner above, inline object definitions are satisfactory.
+
+    Launch a Dialing Activity
+        We use Intent objects and the startActivity method to launch the user into new Activities. To send them to an Activity capable of dialing a phone number (phone app, Skype, WhatsApp, etc.), we must first define our Intent:
+            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+
+        The Intent class offers a wide variety of actions, and the Android Manifest file defines the actions to which our Activities (and other component-level objects) may respond. For example:
+            <activity android:name="DialerActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.DIAL"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                    <data android:scheme="tel"/>
+                </intent-filter>
+            </activity>
+
+        After we create our dialing Intent, we must provide the phone number the user wishes to dial:
+            dialIntent.setData(Uri.parse("tel:8005882300"));
+
+        This bit is a little messy, but the Uri class represents uniform resource identifiers. As a real-world example, all URLs (uniform resource locators) are technically URIs with a specific scheme (http and https). Here, our data scheme is tel (short for telephone).
+
+        The Uri.parse method converts the string parameters into a Uri object complete with scheme, path, host, and the rest— all of which Android requires to identify precisely what our application is trying to communicate.
+
+        After we thoroughly prepare our Intent, we may launch a dialing Activity by invoking the following:
+            startActivity(dialIntent);
+            
+        Here’s the full snippet:
+            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+            // setData requires a Uri object
+            dialIntent.setData(Uri.parse("tel:8005882300"));
+            // Request the Android operating system to find and launch an appropriate Activity
+            startActivity(dialIntent);
+
+        Review:
+            👉When the user touches the screen, Android records a series of MotionEvent objects.
+            👉A MotionEvent provides an action (ACTION_DOWN, ACTION_UP, ACTION_MOVE, etc.), an x/y coordinate, pressure, and history of previous MotionEvent objects.
+            👉A sequence of MotionEvent objects begin with ACTION_DOWN (first touch) and end with ACTION_UP (finger leaves the screen).
+            👉By interpreting a series of MotionEvent objects, the Android SDK permits us to detect Gestures.
+            👉Click, long-click, swipe, double-tap and others are gestures predefined by the Android SDK that we may detect through several means.
+            👉By default, all Views detect clicks and long-clicks.
+            👉To detect a click, we may invoke the View.setOnClickListener method and pass an object that implements the View.OnClickListener interface.
+            👉Intent objects allow our application to communicate with other applications installed on the device (browser, phone, image gallery, and beyond).
+            👉It is through Intent objects that Android launches new Activities, Services, and more.
+            👉By associating data and specific actions to Intent objects, we can help navigate the user to their desired destination without any prior knowledge of the applications installed on the device.
+            
+
+            Assume R.id.button refers to a Button View. Fill in the code so that after the user clicks the button, its text is changed to read "Clicked!".
+                findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        👉((Button) v)👈.👉setText("Clicked!")👈;
+                    }
+                });
+
+            What is the difference between a MotionEvent and a Gesture?
+                Gestures can be romantic, but MotionEvents are unflinchingly serious…
+                Our application cannot recognize MotionEvent objects, but it can recognize Gestures.
+                A MotionEvent is always a Gesture, but a Gesture is not always a MotionEvent.
+                MotionEvents and Gestures are the same thing.
+                ✔️We may interpret a series of MotionEvents as a Gesture.
+
+            TRUE or FALSE: To take advantage of other applications installed on the user’s device, we must know of them beforehand.
+                ✔️False
+                True
+
+            TRUE or FALSE: All View objects are clickable.
+                ✔️True
+                False
