@@ -6,43 +6,44 @@ Simple Calculator Project
             🎨https://content.codecademy.com/courses/Android/simple-calculator-demo.gif
 
     Step 1: Create a new project with an empty activity
-        Choose Start a new Android Studio project in the Android Studio welcome screen. On the page that follows select the Empty Activity template, and name it Simple Calculator.
+        Choose Start a new Android Studio project in the Android Studio welcome screen. On the page that follows 👉select the Empty Activity template, and name it Simple Calculator👈.
 
 Setting up the UI
     Step 2: Add an input box for the first number
         First thing’s first, you’ll want to give the user a place to put the numbers they want to operate on. Luckily, Android provides a number text-box component by default which will automatically change the keyboard to display a number pad instead of letters.
 
-        Open your activity_main.xml file, and in the visual layout editor click on the text tab, drag and drop a Number component into the ConstraintLayout. Remember that the ConstraintLayout is provided by default. Note: you can delete the hello world TextView that is in there.
+        👉Open your activity_main.xml file, and in the visual layout editor click on the text tab, drag and drop a Number component into the ConstraintLayout👈. Remember that the ConstraintLayout is provided by default. Note: you can delete the hello world TextView that is in there.
 
-        Because the app is using a ConstraintLayout, you’ll want to add constraints to the newly added text box. Add a left and a right constraint so that the number box is positioned in the middle of the screen, and a top constraint to the top of the screen.
+        Because the app is using a ConstraintLayout, you’ll want to add constraints to the newly added text box. 👉Add a left and a right constraint so that the number box is positioned in the middle of the screen, and a top constraint to the top of the screen👈.
 
         To add a constraint, remember that you can drag the constraint arrow to the top of the screen.
 
-        Finally, click on the new Number component and update the id to be number1. This will be where the user inputs the first number they want to operate on.
+        Finally, click on the new Number component and 👉update the id to be number1👈. This will be where the user inputs the first number they want to operate on.
 
-        You can also add hint text, something like Enter a number here..., which will act as a placeholder if there’s no numbers in the number box. Similarly, add a text value of 0 which will be the default value.
+        You can 👉also add hint text👈, something like Enter a number here..., which will act as a placeholder if there’s no numbers in the number box. Similarly, 👉add a text value of 0 which will be the default value👈.
+            Hint: https://stackoverflow.com/questions/8221072/android-add-placeholder-text-to-edittext
 
     Step 3: Add an input box for the second number
-        Create a second Number text box below the first. This text box should have a unique ID, number2. It should be constrained to the left and right of the screen as well as to the bottom of number1.
+        👉Create a second Number text box below the first👈. This text box should have a unique ID, number2. It should be 👉constrained to the left and right of the screen as well as to the bottom of number1👈.
 
     Step 4: Add an operation selector
         The calculator will provide the functionality for two operations: addition and subtraction. In this step, you’ll add the ability for the user to choose which operation they want to perform.
 
         There are a few different ways of doing this, but, for the sake of simplicity, it’s best to use radio buttons. A grouping of radio buttons gives the user the ability to choose only one option in a list of options — perfect for this scenario.
 
-        In the visual layout editor, click on the Buttons Tab, and drag a Radio Group component onto the screen view below the second number box. This is an invisible container that can hold radio buttons. Give it an id of operators.
+        👉In the visual layout editor, click on the Buttons Tab, and drag a Radio Group component onto the screen view below the second number box. This is an invisible container that can hold radio buttons. Give it an id of operators👈.
 
         The Radio Group component has built-in logic to ensure a user may select only one radio button at a time.
 
-        Just like with the number boxes, add side constraints and a top constraint which points to the bottom of the second number box.
+        Just like with the number boxes, 👉add side constraints and a top constraint which points to the bottom of the second number box👈.
 
-        Inside the Radio Group component, add two Radio Button components. Because the Radio Group component is invisible, you’ll want to drag and drop the Radio Button component from the side menu onto the Radio Group option in the component tree section of the side menu (directly below).
+        Inside the Radio Group component, 👉add two Radio Button components👈. Because the Radio Group component is invisible, you’ll want to 👉drag and drop the Radio Button component from the side menu onto the Radio Group option in the component tree section of the side menu👈 (directly below).
             🎨https://content.codecademy.com/courses/Android/calc-proj-screen-radio.png
                 radio button selection
 
-        Give the first radio button an id of add and change the text to +. Give the second an id of subtract and change the text to -.
+        👉Give the first radio button an id of add and change the text to +👈. 👉Give the second an id of subtract and change the text to -👈.
 
-        Finally, click on the Radio Group component in the component tree. In the Common Attributes section, select @id/add as the checkedButton. This will select “add” by default.
+        Finally, 👉click on the Radio Group component👈 in the component tree. In the 👉Common Attributes section, select @id/add as the checkedButton👈. This will select “add” by 👉default👈.
 
     Step 5: Add an equals button
         Your calculator needs an equals button which, when pressed, will trigger the selected operation on the numbers in the number boxes.
@@ -59,16 +60,16 @@ Setting up the UI
 Adding Functionality
         Run your app on the emulator and ensure that it’s looking good! Feel free to change the design to your taste. Once you’re happy with the layout, it’s time to start adding some functionality!
 
-    Step 7: Create variables for the number boxes
-        In order to add functionality to your app, you need to have access to the UI components that were just added. Do this by storing them in Java variables starting with the number boxes which are instances of the EditText class.
+    Step 7-1: Create variables for the number boxes
+        In order to add functionality to your app, you need to have access to the UI components that were just added. Do this by storing them in Java variables starting with the 👉number boxes which are instances of the EditText class👈.
 
-        In the MainActivity.java file, import the EditText class at the top of the file (import android.widget.EditText;).
+        👉In the MainActivity.java file, import the EditText class at the top of the file (import android.widget.EditText;)👈.
 
         Now that you’ve imported the class, within the onCreate method, store a reference to the first number box in a variable called firstNumber. You can access UI elements by utilizing the findViewById() function. The findViewById() function takes as an argument the integer id of the element you want to access. This integer id is stored in R.id.number1 (number1 here is the id of the number box created earlier).
 
         Repeat this process for the second number box, storing it in a variable called secondNumber.
 
-    Step 7: Create variables for the rest of the UI elements
+    Step 7-2: Create variables for the rest of the UI elements
         Follow the same steps as above to create variables which store references to the other UI elements:
 
         Store the radio group in a RadioGroup object called operators.
@@ -79,14 +80,14 @@ Adding Functionality
     Step 8: Setup an event listener on the equals button
         Thanks to the default properties of the Android components you’re using, your app already has some functionality! You can input numbers into the number boxes and change the operation between addition and subtraction. What the app lacks is the underlying logic to perform the selected operation and display the result.
 
-        As a first step towards that goal, you’ll need to “wire up” the equals button so you can do something when it’s clicked. To do this call the setOnClickListener() method on the equals button variable.
+        As a first step towards that goal, 👉you’ll need to “wire up” the equals button so you can do something when it’s clicked👈. To do this 👉call the setOnClickListener() method on the equals button variable👈.
 
         Inside the method call parentheses, you’ll need to create a new View.OnClickListener(), the Android Studio autocomplete should be able to do this for you, but if not it should look something like this:
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {...}
+            }
 
-        new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {...}
-        }
         Any code inside the onClick() function above will now be executed when the equals button is clicked.
 
     Step 9: Parse integers from the number box
@@ -98,19 +99,19 @@ Adding Functionality
 
         Once you get the number as a String, you can convert the String to an int using the Integer.parseInt(/* number string */) function.
 
-        All together, you can get an integer from a number text box like so:
-
-        int firstNumberValue = Integer.parseInt(numberBox.getText().toString());
+        All together, you can get an integer from a number text box like so:    
+           int firstNumberValue = Integer.parseInt(numberBox.getText().toString());
+     
         Do this for the firstNumber and secondNumber number boxes and store the resulting ints in variables called firstNumberValue and secondNumberValue respectively.
 
-        All of this code should go inside the onClick function you created in the last step.
+        All of 👉this code should go inside the onClick function👈 you created in the last step.
 
     Step 10: Get the operator
         At this point, you have the numbers that the user input, but you still need to determine which operation the user wants to perform (the selected radio button).
 
         You can do this by getting the id of the radio button that is checked from the RadioGroup component.
 
-        Call the getCheckedRadioButtonId() function on the operators variable you created earlier, and store the result in an integer variable called operatorButtonId (component ids are integers).
+        👉Call the getCheckedRadioButtonId() function on the operators variable👈 you created earlier, and 👉store the result in an integer variable called operatorButtonId👈 (component ids are integers).
 
     Step 11: Perform the operation
         Now that you know whether the user wants to add or subtract you can perform the appropriate operation.
@@ -120,8 +121,8 @@ Adding Functionality
         Next, create an if/else conditional block which will check if you need to add or subtract.
 
         Remember that you have the id of the selected radio button (add or subtract) stored in a variable. In your if statement, you’ll want to check if that id matches the id of the add button or of the subtract button. Something like this:
-
-        if(operatorButtonId == add.getId()){...}
+            if(operatorButtonId == add.getId()){...}
+    
         The code above checks if the operatorButtonId matches the id of the add button. If it does, it should store the result of adding firstNumberValue and secondNumberValue together in the answer variable.
 
         If you’re not using the add operator, then you must be using the subtract operator, so add an else statement which stores the result of subtracting the two numbers in the answer variable.
