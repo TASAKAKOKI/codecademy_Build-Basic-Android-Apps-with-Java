@@ -1,0 +1,474 @@
+⭐🎨❇️➡️➖💎✔️🔗🎦👉👈
+Unquote Capstone Project
+                Build upon the previous projects to create a living, breathing Android application!
+
+
+Objective
+                It’s been a long road, and now it’s time for you to complete your journey.
+
+                Use everything you’ve learned about application design, Java, XML, and Android to bring Unquote to life.
+
+                In this project, you will piece together your achievements from the previous app-building projects and wrap it up into a working Android game.
+
+Section 1. Prepare Your Project
+                Unquote is basically half-done, but the code you’ve produced so far exists on-platform at Codecademy. In this section, you will incorporate your previous work into your Unquote Android Studio Project and launch your application for the first time.
+
+                We encourage you to use all the code you’ve built out so far. But if you’d prefer, you can access our code for MainActivity.java, Question.java, and activity_main.xml in this zip folder(🔗https://content.codecademy.com/courses/Android/android-java-module-capstone-project-section-1.zip).
+
+        1-A. Open your Unquote Android project
+                If you no longer have access to that project, create a new Android Project with the following parameters:
+                        Name: Unquote
+                        Minimum API Level: 15
+                        Language: Java
+                        Template: Empty Activity
+
+        1-B. Prepare MainActivity.java
+                Navigate to MainActivity.java in your project, then delete everything in that file below the top-most line. Remove everything below: package com.{your-company-name}.unquote;.
+
+        1-C. Paste into MainActivity.java
+                Copy the contents of the MainActivity.java file included in this section into your MainActivity.java project file.
+
+                Do not copy the top-most line: package com.example.unquote; as this will conflict with your actual package name.
+
+        1-D. Create a Question class
+                With MainActivity.java open, navigate to the File menu.
+
+                Choose File, then New, and click Java Class. Type ‘Question’ in the class name field, and click Ok.
+
+                After completing this task, stay focused on the Question.java tab.
+
+        1-E. Paste into Question.java
+                Copy the contents of the Question.java file included in this section, and paste in-between the curly braces of the Question class in Android Studio.
+
+        1-F. Open and clear it out activity_main.xml
+                Open the activity_main.xml layout file. You can find it in the Layouts section within the Resource Manager.
+
+                Upon opening, if you cannot see the ‘Text’ or ‘Code’ (XML content), switch to a view that allows you to edit the underlying XML content directly.
+
+                Select every line in the activity_main.xml file and delete it.
+
+        1-G. Replace all the things
+                Copy the contents of the activity_main.xml file included in this section and paste it into your project’s activity_main.xml.
+
+                If you would like to use the activity_main.xml layout file you created in the previous Unquote project, use the Declared Attributes Panel to modify your existing component IDs to match the following:
+                        Component	        ID
+                        Quote ImageView	        iv_main_question_image
+                        Question TextView	tv_main_question_title
+                        Submit Button	        btn_main_submit_answer
+                        Answer 0 Button	        btn_main_answer_0
+                        Answer 1 Button	        btn_main_answer_1
+                        Answer 2 Button	        btn_main_answer_2
+                        Answer 3 Button	        btn_main_answer_3
+                        Questions Remaining Count TextView (“99”)
+                                                tv_main_questions_remaining_count
+                        Questions Remaining TextView (“questions remaining”)
+                                                tv_main_questions_remaining
+        
+        1-H. Run Unquote for the first time
+                You will need a real Android phone or an Android Virtual Device to run Unquote.
+
+                Refer to back to this article(🔗https://www.codecademy.com/paths/introduction-to-android-with-java/tracks/getting-started-IADWJ/modules/getting-started-with-android-studio/articles/running-your-app-on-a-device) if you need some guidance on how to create a virtual device as well as how to enable development mode for your personal device.
+
+        1-I. It’s not much to look at…
+                But it’s all yours! Proceed to the next section to continue building Unquote.
+
+Section 2. Import Artwork
+                Presentation separates the average application from the exceptional, so we’ve created a custom Unquote application icon and 6 hand-illustrated quote images for you to present to players.
+
+                In this section, you will import these assets into your application, modify your app’s launcher icon, and present the icon to players inside MainActivity.
+
+        2-A. Download the artwork
+                Every file you need for Unquote is inside this zip archive(🔗https://www.codecademy.com/paths/introduction-to-android-with-java/tracks/getting-started-IADWJ/modules/getting-started-with-android-studio/articles/running-your-app-on-a-device). Download and extract the folder to your Desktop.
+
+        2-B. In Android Studio, reveal the Resource Manager
+                If you can’t find the Resource Manager, look under the menu for View > Tool Windows > Resource Manager.
+
+        2-C. Drag the unquote-drawables folder into the Resource Manager Panel
+                This will make the files part of Unquote and accessible to your code and layouts.
+                        🎦https://www.youtube.com/watch?v=h5zf-02Uvmw
+
+                You can do this in Windows or OS X by clicking the folder icon and dragging it into the Resource Manager window.
+                        🎦https://www.youtube.com/watch?v=PW0QflD8lp0
+
+                This will reveal an Import Drawables wizard, Drawables being the images and graphics you bundle with your app.
+                        🎦https://www.youtube.com/watch?v=0Euz-m0C0dU
+
+                Click the Next button, then click Import on the following screen. Voila, the images are now part of Unquote!
+
+        2-D. Open AndroidManifest.xml
+                You can find the AndroidManifest.xml file in your project tree under app > manifests > AndroidManifest.xml.
+
+        2-E. Use your custom Unquote icon
+                ⭐AndroidManifest.xml, among other things, tells Android OS where to find your app icon⭐. It provides this information with two lines:
+                        <!-- some attributes here -->
+                        android:icon="@mipmap/ic_launcher"
+                        <!-- more attributes -->
+                        android:roundIcon="@mipmap/ic_launcher_round"
+                        <!-- and more attributes -->
+
+                As of Android v26, Google recommends you supply adaptive icons that allow devices to round out the corners or cut the image into any shape they see fit. You won’t be doing that.
+
+                To simplify, delete the second line and change the first line to android:icon="@drawable/ic_unquote_icon". The image named ic_unquote_icon came bundled with the images you imported earlier.
+
+        2-F. Save and relaunch
+                Relaunch your application and check out Unquote’s shiny new icon!
+
+                Hint: The best way to see the launcher icon is to open the app drawer (where Android stores all the application Activities available to the user).
+                        From a generic virtual device, swipe up from the bottom-middle of the screen to reveal the app drawer.
+        
+        2-G. Show it off
+                You may have seen some snazzy applications place their app icon in the top bar of their interfaces (also known as the ActionBar).
+
+                To make sure Unquote stays hip, you will finally begin to fulfill the promises left by all those little TODO comments.
+
+                Add the following four lines below at TODO 2-G in MainActivity:
+                        // TODO 2-G: Show app icon in ActionBar
+                        getSupportActionBar().setDisplayShowHomeEnabled(true);
+                        getSupportActionBar().setLogo(R.drawable.ic_unquote_icon);
+                        getSupportActionBar().setDisplayUseLogoEnabled(true);
+                        getSupportActionBar().setElevation(0);
+
+                Don’t worry about learning these methods, they are niche Android APIs that you needn’t master right this second.
+
+                Save and relaunch Unquote to see your awesome new icon on the big (small) screen. It feels official now, doesn’t it?
+
+        2-H. Use the ‘real’ fake quotes
+                Open MainActivity, and scroll down to your startNewGame() method.
+
+                Use the R.drawable object to swap out the first parameter (int imageId) of each Question object with the appropriate fake quote image at TODO 2-H.
+
+                Make sure to have 6 Question objects in total, and use the questions and answers provided in this PDF(🔗https://content.codecademy.com/courses/Android/AndroidAndJavaDevelopmentModule-CapstoneProject-Section2README.pdf).
+
+                Later, you will use the Question.imageId member variable to set the image presented by the ImageView on-screen.
+
+                        Hint: The format for accessing drawable resource IDs is R.drawable.name_of_drawable, these are integers.
+                        If you imported your images correctly in 2-C, your code should have access to R.drawable.img_fake_quote_0, R.drawable.img_fake_quote_1, etc.
+
+        2-I. In the next section…
+                You will recover Views and begin to display these quotes, their questions, and their possible answers on-screen!
+                        “Hip hip, hooray!
+                        Hip hip, hooray!
+                        Hip hip, hooray!”
+
+                        — Dr. Isla Von Frederickson
+
+                Inventor of the hip replacement, probably
+
+Section 3. Find & Assign View Objects
+                Without first recovering your View objects, you cannot update any text, use image resources, or respond to clicks. In this section, you will pull View objects from your layout and begin to use them in your code.
+
+                Let’s begin!
+
+        3-A. Declare View member variables
+                You can use findViewById() anywhere in MainActivity, but with complex layouts, this method becomes expensive — expensive in the sense that your user may find the app temporarily unresponsive or slow (laggy) as your code repeatedly calls findViewById().
+
+                To get around this limitation, declare all the Views you need as MainActivity member variables. Then, MainActivity can access and modify the Views anywhere without re-invoking findViewById().
+
+                Declare a member variable for every View that your code needs access to at TODO 3-A, here are the names we recommend (and will use in examples):
+                        questionImageView
+                        questionTextView
+                        questionsRemainingTextView
+                        answer0Button
+                        answer1Button
+                        answer2Button
+                        answer3Button
+                        submitButton
+                
+                                Hint: Open activity_main.xml and look for all View components whose data you need to manipulate (Text, Images) as well as those whose clicks your application must respond to (Buttons).
+                                When declaring these Views, use the exact View type (ImageView / TextView / Button) that you used when designing your layout, and give them all descriptive names, e.g. TextView questionTextView;.
+
+        3-B. Assign all View member variables
+                Use findViewById() to assign each View member variable to an inflated View object at TODO 3-B.
+
+                Remember, findViewById() finds the View that corresponds to a given identifier (provided in your activity_main.xml layout) and gives you direct control of that View in code.
+
+                        Hint: findViewById() takes a resource identifier as its only parameter and returns a View object.
+                        The identifier you pass into findViewById() must match the value of the ID attribute you assigned to the View within activity_main.xml, e.g. android:id="@+id/iv_example_avatar" and then in your Activity object, findViewById(R.id.iv_example_avatar);.
+                        To double-check your identifiers, open activity_main.xml and look for the values assigned to each component’s ID attribute, then follow this example:
+                                contactButton = findViewById(R.id.btn_main_contact);
+
+        3-C. Display remaining question count
+                With all your Views recovered, you are ready to build the displayQuestionsRemaining() method at TODO 3-C.
+
+                This method returns nothing (void) and takes in the number of remaining questions as an integer parameter.
+
+                Declare the method and have it modify the questionsRemainingTextView object.
+
+                        Hint:Use questionsRemainingTextView.setText() to change the text displayed by your TextView.
+                        You may pass a String object into this method as well, e.g. myTextView.setText("Oh, hello there!");.
+                        If you’re stuck on which TextView to modify, our provided layout file (section 1, activity_main.xml) gives this TextView an ID of tv_main_questions_remaining_count and a default value of “99”.
+
+        3-D. Use displayQuestionsRemaining()
+                This method is now fully-functional, uncomment and call it where necessary (TODO 3-D.i and TODO 3-D.ii).
+
+                Updating the remaining count is critical at these two moments, they are the only places in the code where we change the number of questions remaining. The first is after the player submits an answer, and the second immediately after we create a new game.
+
+        3-E. Re-run Unquote
+                With displayQuestionsRemaining() in action, you now have a working question counter!
+
+                After re-running Unquote, you should see “6 questions remaining” (not 99). If not, go back and check your work!
+
+                        Hint: If Unquote crashes, we might have an idea why.
+                        TextView.setText(int) is a TextView method that accepts a String resource identifier to update the text displayed (instead of a String object).
+                        If you passed remainingQuestions into TextView.setText(…) at TODO 3-C, it will call TextView.setText(int), not TextView.setText(CharSequence)—the second accepts a String, the first does not!
+                        To turn remainingQuestions into a String object, try String.valueOf(remainingQuestions) or remainingQuestions + "".
+                        Two versions of TextView.setText() exist in the same class because their parameters differ, e.g. countToFifty(int by) and countToFifty(boolean byTen) may exist in the same class as well.
+
+        3-F. Declare displayQuestion()
+                This method returns nothing (void) and will modify all View objects necessary to present a Question object to the player.
+
+                Begin by declaring the method and leave the body empty at TODO 3-F.
+
+        3-G. Implement displayQuestion()
+                You should have access to every View necessary to implement this method: your main ImageView, your question TextView, and your four answer Button Views (all declared as member variables in 3-A).
+
+                You must modify these View objects using either the setText() or setImageResource() methods.
+
+                        Hint: The Question object contains every variable you need to implement this method, namely: imageId, questionText, answer0…answer3.
+                        To access them, use dot-syntax, e.g. question.answer0, and pass those values as parameters… answer0Button.setText(question.answer0);.
+
+        3-H. Un-comment displayQuestion()
+                For TODO 3-H.i and TODO 3-H.ii, remove the comments preceding those lines (delete the //).
+
+                At 3-H.i, we call this method right after choosing a new question for the player to answer. And at 3-H.ii,
+
+        3-I. Re-run Unquote
+                If everything goes according to plan, you should see one of your 6 available questions displayed on screen!
+
+                The image, question, and four answers should all reflect data provided in startNewGame(). If not, go back and check your work.
+
+                        Hint: If your application crashes or leaves on-screen Views unchanged, make sure you declared and assigned (using findViewById()) every View component that your application needs to modify back at 3-A and 3-B.
+                        These include the quote ImageView, question TextView, four answer Button components, questions remaining TextView, and the submit answer Button.
+
+Section 4. Choose An Answer With onAnswerSelected()
+                Finally! The player can see a question on-screen, and that’s pretty much 80% of the work. The rest is making sure that clicking and tapping the screen results in the exact response your player expects.
+
+                In this section, you will enable the player to select one of the four possible answers provided by each question.
+
+        4-A. Declare onAnswerSelected()
+                This method returns nothing (void) and requires an integer identifying the player’s answer (0 through 3).
+
+                Not only will this method set the playerChoice member variable, but it will also perform a number of interface and logic updates to keep the game going.
+
+                Declare this method at TODO 4-A. You will complete the following 3 tasks in onAnswerSelected().
+
+        4-B. Recover the current Question
+                Your first task within onAnswerSelected() is to update the underlying Question object to reflect the player’s selection.
+
+                Begin by saving a reverence to the current Question object in a variable named, currentQuestion.
+
+                        Hint: In a previous project, you wrote a convenience method for MainActivity, something along the lines of getCurrentQuestion()…
+
+        4-C. Change the player’s answer
+                In Question, you defined a member variable named playerAnswer to track the answer chosen by the player.
+
+                Modify the playerAnswer member variable of the currentQuestion object to match the player’s selection (answerSelection).
+
+        4-D. Indicate a selection
+                When the player makes their choice, you need to show some visual indication of which choice they made.
+
+                One way to achieve this is to add a ✔ symbol to the beginning of the answer presented by the Button.
+
+                For example, an answer Button which reads, “Abraham Lincoln” becomes, “✔ Abraham Lincoln” after the player clicks it.
+
+                Use the ‘✔’ symbol by highlighting it on this page, copying, and pasting into your code!
+
+                        Hint: onAnswerSelected() only knows which answer the player selected (0 through 3), therefore, use an if or a switch statement to determine which Button must display a ‘✔ ’.
+                        And to modify the Button, use the setText() method, e.g. answer0Button.setText("✔ " + question.answer0);.
+
+        4-E. Listen to the clicks
+                Use the View.setOnClickListener() method to assign an empty click listener to all four answer Button Views at TODO 4-E.
+
+                        Hint:View.OnClickListener is a [Java Interface](https://www.codecademy.com/paths/introduction-to-android-with-java/tracks/developing-an-android-application/modules/building-android-apps/articles/java-interfaces) and you can declare an inline interface object with the following syntax:
+                                button.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                                // Click-handling logic
+                                        }
+                                });
+                        When invoking View.setOnClickListener(), you may type new, then hit CMD (or CTRL) + Spacebar to reveal an autocomplete menu.
+                        Select OnClickListener from the autocomplete menu options to have Android Studio fill in the rest!
+
+        4-F. Each Button, a choice
+                When the user clicks an answer button, they do not realize that each one associates with a number (0, 1, 2, and 3), all they know is which choice they made.
+
+                But the click handlers you provide for each Button must call onAnswerSelected() based on the underlying answer identifier that each Button represents.
+
+                Inside each of the four click listeners, call onAnswerSelected() with the appropriate answerSelected parameter.
+
+        4-G. Run Unquote
+                And make your selection!
+
+                If everything looks right, then something is wrong.
+
+        4-H. You noticed it too, huh?
+                If your logic is correct, then each answer Button shows a check symbol (✔) after you click it.
+
+                However, even as your ‘choice’ changes, your previous choices remain selected! How might you fix this?
+
+                Think about it for a couple minutes, then move on to 4-I.
+
+        4-I. Redundancy saves the day
+                To fix the issue discovered in 4-H, reset the text for all four answer Button Views before the logic added in 4-E.
+
+                Meaning, by using setText() again, you reset all the buttons to their starting positions (no ‘✔’).
+
+                        Hint: Before your if or switch statement, re-assign the text displayed by each answer Button to its original content, e.g. answer0Button.setText(currentQuestion.answer0);, etc.
+
+        4-J. Try and try again
+                Run Unquote one more time and watch as your selection moves gracefully from one Button to the next!
+
+                With your ability to select an answer squared away, you’re one step closer to scoring the player and ending the game.
+
+Section 5. Game Over
+                A game which never ends is no game at all, it’s a nightmare.
+
+                In this section, you will enable the player, win or lose, to end their round of Unquote. And if they dare to test their knowledge again, you will give them that opportunity.
+
+        5-A. On submit click
+                Assign a click listener to your submit answer Button using View.setOnClickListener() at TODO 5-A.
+
+                The Button in the bottom-right corner of your layout, when clicked, locks-in the player’s choice and moves onto the next question (or ends the game).
+
+                        Hint: Use the View.OnClickListener interface to set a click listener for your Button, e.g.
+                                button.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                                // click-handling logic
+                                        }
+                                });
+
+        5-B. Call onAnswerSubmission()
+                You began work on this method in the previous project, and now you get to use it!
+
+                Call this method from the click handler declared in 5-A to allow the player to submit their final answer.
+
+                5-C. Play a complete game
+                Unquote is now playable! Play the game and watch Logcat in Android Studio for your game over message.
+
+                A bit anticlimactic, huh? Let’s fix that.
+
+        5-D. Start a dialog
+                Previously, your app printed the game over message to Logcat, but an AlertDialog can help you present this message to a person who will actually read it: the player.
+
+                In Android, you can use a built-in API to reveal a small popup window with a custom message and clickable options. This popup is called an AlertDialog.
+
+                At TODO 5-D, delete the System.out… line, and replace it with the following:
+                        // TODO 5-D: Show a popup instead
+                        AlertDialog.Builder gameOverDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                        gameOverDialogBuilder.setCancelable(false);
+
+                This Builder class helps you generate a popup which adheres to the visual theme of your player’s device (it will always look right).
+
+                And the AlertDialog.Builder.setCancelable() method prevents the player from accidentally canceling the popup by tapping outside of the popup window.
+
+        5-E. Give it a title
+                The title of the AlertDialog appears as a short message at the top of the popup window.
+
+                Use AlertDialog.Builder.setTitle() to set this short message for your popup immediately below the code added in 5-D.
+
+                        Hint: // (5-D code)
+                        gameOverDialogBuilder.setTitle("Game Over!");
+        
+        5-F. Spread the message
+                Use AlertDialog.Builder.setMessage() to present your gameOverMessage to the player. The gameOverMessage will appear as a small parapraph of text within the popup window.
+
+                        Hint: To set the message using AlertDialog.Builder, do the following:
+                        // (5-E code)
+                        gameOverDialogBuilder.setMessage(gameOverMessage);
+
+        5-G. Give them another chance…
+                Finally, let’s give the player another chance at Unquote.
+
+                AlertDialog can present positive, neutral, and negative buttons (indicating their position from left-to-right or top-to-down, depending on the device).
+
+                Use the following to create a positive AlertDialog button, place it immediately below the code you wrote for 5-F:
+                        // (5-F code)
+                        gameOverDialogBuilder.setPositiveButton("Play Again!", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                        startNewGame();
+                                }
+                        });
+
+                        Hint: The DialogInterface.OnClickListener is an interface similar to View.OnClickListener, but made to work specifically with buttons added to an AlertDialog, hence, the method signature differs.
+
+        5-H. Present the dialog
+                When creating an AlertDialog using an AlertDialog.Builder object, you must call two more methods before it appears on screen. Add the following line below the code in the previous task:
+                        // (5-G code)
+                        gameOverDialogBuilder.create().show();
+        
+        5-I. Play it again, Sam
+                Re-launch Unquote and play another round. This time, your game over message should appear in a simple, yet effective popup window!
+
+                By pressing “Play Again!”, Unquote starts a fresh new round of trivia!
+
+Section 6. Challenge Accepted
+                Unquote is looking good and working well. In this last section, we challenge you to find (and fix) a few bugs as well as add a new set of trivia questions for players to answer.
+
+                The hints in this section will not be as detailed as those in the previous, so put your thinking cap on! 😉
+
+        6-A. Please submit
+                What happens when you submit your answer before selecting a choice?
+
+                        Hint: Unquote accepts the answer anyway, and certainly the answer is wrong because the default choice (-1) set by the Question constructor is never correct.
+        
+        6-B. Fix this bug
+                When submitting an answer, Unquote must first make certain the player selected an answer (other than the default of -1).
+
+                How might you check for this condition and where should you check it to prevent Unquote from accepting -1 as an answer?
+
+                        Hint: If currentQuestion.playerAnswer is equal to -1, that means the player has not made their selection.
+                        Where you check for this condition, you can use an empty return statement to stop your method from continuing execution.
+        
+        6-C. More questions, more answers
+                While you meticulously built Unquote, our graphic artists had time to kill, so we made them design more quotes for you to use in your game.
+
+                Download these additional assets(https://content.codecademy.com/courses/Android/android-java-development-module-capstone-project-section-6.zip) and unzip them to your Desktop. Inside, you’ll find 7 more quote images to use in Unquote, and a PDF detailing the questions and answers that go with each!
+
+        6-D. Create a second set of Question objects
+                After importing the images in 6-C as Drawables, define 7 more Question objects in startNewGame() immediately below your first 6 Question objects, and add them to your questions list.
+
+        6-E. With a twist…
+                The first set of quotes is far different from the second set.
+
+                You will use a loop and the generateRandomNumber() method to choose 6 questions from the available 13 — these are the 6 questions your player must answer each round.
+
+                How might you do this?
+
+                        Hint: You will use a loop to remove one question at a time, at random, from the full set of 13, until only 6 remain.
+        
+        6-F. Set up your loop
+                You need a loop that runs 7 times, set one up now.
+
+                        Hint: A while loop works here, e.g.:
+                                int loopSix = 6;
+                                while (loopSize > 0) {
+                                        // work here
+                                        loopSix = loopSix - 1;
+                                }
+                        or use..
+                                while (questions.size() > 6) {
+                                        // work here
+                                }
+        
+        6-G. Choose one at random
+                In your loop, you need to pick one of the Question objects from the questions list at random.
+
+                Use generateRandomNumber() (the method you wrote in Game Logic Part. I) to pick a Question at random.
+
+                        Hint: generateRandomNumber() returns a number between 0 and max (the integer parameter).
+                        Pick a Question at random by generating a random integer index between 0 and questions.size(), e.g.
+                                int questionIndexToRemove = generateRandomNumber(questions.size());
+        
+        6-H. Remove the randomly chosen Question object
+                ArrayList.remove() allows you to remove an item from a list based on its location (index) in the list. Use this method to remove the randomly chosen Quesion object.
+
+                        Hint: If you choose an index at random, remove it from the list by calling questions.remove(questionIndexToRemove);
+
+        6-I. Play it again, and again!
+                You did it! Your app was a Pinocchio, but now it’s a real boy!
+
+                Unquote is far more playable than ever, and hopefully a little bit of fun.
+
+                We challenge you to keep adding trivia questions and features to Unquote to truly make it your own.
